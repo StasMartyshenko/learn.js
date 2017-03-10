@@ -145,19 +145,22 @@
 //Создайте код, который выводит все простые числа из интервала от 2 до 10. Результат должен быть: 2,3,5,7.
 //P.S. Код также должен легко модифицироваться для любых других интервалов.
 
-var cont = 0;
-for(var i = 2; i < 50; i++){
-cont = 0;
-for(var d = i; d > 0; d--){
-if(i % d == 0){
-cont++;
-}
-}
-if(cont <= 2){
-console.log(i);
-}
-}
+Решение задачи на языке JavaScript.
 
+<script>
+var cont = 0;
+for(var i = 2; i < 500000; i++) {
+	cont = 0;
+	for(var a = i; a > 0; a--) {
+		if(i % a == 0){
+			cont++;
+		}
+	}
+	if(cont <= 2) {
+		console.log(i);
+	}
+}
+</script>
 
 //Конструкция switch
 
@@ -193,6 +196,114 @@ console.log(i);
 //user.surname = 'петров';
 //user.name = 'Cthutq'
 //delete user.name;
+
+
+//Объекты: перебор свойств
+//
+//function isEmpty(obj) { 
+//var counter = 0;
+//for (var key in obj) { я написал isEmpty =)
+//  counter++;
+//}
+//if (counter == 0){
+//return true;
+//} else {
+//return false;
+//}
+//}
+//var schedule = {};
+//alert( isEmpty(schedule) ); // true
+//schedule["8:30"] = "подъём";
+//alert( isEmpty(schedule) ); // false
+// 
+//аналогично на лерне:
+//
+//function isEmpty(obj) {
+//  for (var key in obj) {
+//    return false;
+//  }
+//  return true;
+//}
+//
+//var schedule = {};
+//alert( isEmpty(schedule) ); // true
+//schedule["8:30"] = "подъём";
+//alert( isEmpty(schedule) ); // false
+//
+//"use strict";
+//var salaries = {
+//  "Вася": 100,
+//  "Петя": 300,
+//  "Даша": 250
+//};
+//var count = 0;
+//for (var key in salaries) {
+//var b = salaries[key];
+//var count = count + b;
+//}
+//console.log (count);
+//
+//"use strict";
+//var salaries = {
+//  "Вася": 100,
+//  "Петя": 300,
+//  "Даша": 250
+//};
+//var number = 0;
+//var name = "0";
+//for (key in salaries) {
+//if (salaries[key] > number) {
+//number = salaries[key];
+//name = key;
+//}
+//}
+//console.log ( name+ ':'  +number);
+//VM929:17 Петя:300
+//
+//var menu = {
+//  width: 200,
+//  height: 300,
+//  title: "My menu"
+//};
+//
+//Для проверки на число используйте функцию:
+//function isNumeric(n) {
+//  return !isNaN(parseFloat(n)) && isFinite(n);
+//}
+//
+//function multiplyNumeric(obj) {
+//  for (var key in obj) {
+//    if (isNumeric(obj[key])) {
+//      obj[key] *= 2;
+//    }
+//  }
+//}
+//
+//multiplyNumeric(menu);
+//
+//alert( "menu width=" + menu.width + " height=" + menu.height + " title=" + menu.title );
+//
+//
+//Массивы с числовыми индексами !!! >Поиск в массиве >Решето Эратосфена > Подмассив наибольшей суммы
+//
+//var arr = ["Ябо", "Апельсин", "Груша", "Лимон"];
+//var rand = Math.floor(Math.random() * arr.length);Код для генерации случайного целого от min to max включительно:
+//console.log (arr[rand]);
+//
+//var numbers = [];
+//while (true) {
+//  var value = prompt("Введите число", 0);
+//  if (value === "" || value === null || isNaN(value)) break;
+//  numbers.push(+value);
+//}
+//var sum = 0;
+//for (var i = 0; i < numbers.length; i++) {
+//  sum += numbers[i];
+//}
+//alert( sum );
+//
+//var arr2 = [];
+//for (var i = 0; i < arr.length; i++) arr2[i] = arr[i]; Если нужно именно скопировать массив, то это можно сделать, например, так:
 
 //
 //Функции
@@ -239,7 +350,34 @@ console.log(i);
 //function min(a, b) {
 //  return a < b ? a : b;
 //}
-
+/**
+ * Возводит x в степень n (комментарий JSDoc)
+ *
+ * @param {number} x число, которое возводится в степень
+ * @param {number} n степень, должна быть целым числом больше 1
+ *
+ * @return {number} x в степени n
+ */
+//function pow(x, n) {
+//  var result = x;
+//
+//  for (var i = 1; i < n; i++) {
+//    result *= x;
+//  }
+//
+//  return result;
+//}
+//
+//var x = prompt("x?", '');
+//var n = prompt("n?", '');
+//
+//if (n <= 1) {
+//  alert('Степень ' + n +
+//    'не поддерживается, введите целую степень, большую 1'
+//  );
+//} else {
+//  alert( pow(x, n) );
+//}
 
 
 
@@ -267,24 +405,220 @@ console.log(i);
 //}
 //}
 
-2. Написать функцию, которая находит максимальное значение в произвольном массиве.
-var mas = ["5", "10", "11", "111", "44", "77", "57", "575", "5"];
-var max = 0;
-var maxNumber = "";
-for (var i = 0; i < mas.length; i++) {
-if (max < mas[i]) {
-    max = mas[i];
-    maxNumber = name;
-  }
-}
-console.log( maxNumber );
+
+//Псевдомассив аргументов "arguments"
+//function f (x) { 
+//for (var i = 0; i < arguments.length; i++) {
+//    return 1;
+//}
+//  return 0;
+//}
+//
+//function sum () {
+//var a = 0;
+//for (i=0; i<arguments.length; i++) {
+//a += arguments[i];
+//
+//}
+//return a;
+//}
+//
+//console.log (sum(10, 2));
+//VM877:10 12
 
 
-var mas = ["5", "10", "11", "111", "44", "77", "57", "575", "5"];
-var max = 0;
-for (var i = 0; i < mas.length; i++) {
-if (max < mas[i]) {
-    max = mas[i];
+//Строки
+//
+//function ucFirst(str) {
+//  // только пустая строка в логическом контексте даст false
+//  if (!str) return str;
+//  return str[0].toUpperCase() + str.slice(1);
+//}
+//alert( ucFirst("вася") );
+//
+//function checkSpam(str) {
+//  var lowerStr = str.toLowerCase();
+//  return !!(~lowerStr.indexOf('viagra') || ~lowerStr.indexOf('xxx'));
+//}
+//alert( checkSpam('buy ViAgRA now') );
+//alert( checkSpam('free xxxxx') );
+//alert( checkSpam("innocent rabbit") );
+//
+//function truncate(str, maxlength) {
+//  if (str.length > maxlength) {
+//    return str.slice(0, maxlength - 3) + '...';
+//    // итоговая длина равна maxlength
+//  }
+//  return str;
+//}
+//alert( truncate("Вот, что мне хотелось бы сказать на эту тему:", 20) );
+//alert( truncate("Всем привет!", 20) );
+
+
+//Массивы: методы
+//
+//function addClass(obj, cls) {
+//  var classes = obj.className ? obj.className.split(' ') : [];
+//  for (var i = 0; i < classes.length; i++) {
+//    if (classes[i] == cls) return; // класс уже есть
+//  }
+//  classes.push(cls); // добавить
+//
+//  obj.className = classes.join(' '); // и обновить свойство
+//}
+//var obj = {
+//  className: 'open menu'
+//};
+//addClass(obj, 'new');
+//addClass(obj, 'open');
+//addClass(obj, 'me');
+//alert(obj.className) // open menu new me
+//
+//function camelize(str) {
+//  var arr = str.split('-');
+//  for (var i = 1; i < arr.length; i++) {
+//    // преобразовать: первый символ с большой буквы
+//    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+//  }
+//  return arr.join('');
+//}
+//alert( camelize("background-color") ); // backgroundColor
+//alert( camelize("list-style-image") ); // listStyleImage
+//alert( camelize("-webkit-transition") ); // WebkitTransition
+//function removeClass(obj, cls) {
+//  var classes = obj.className.split(' ');
+//
+//  for (var i = 0; i < classes.length; i++) {
+//    if (classes[i] == cls) {
+//      classes.splice(i, 1); // удалить класс
+//      i--; // (*)
+//    }
+//  }
+//  obj.className = classes.join(' ');
+//}
+//var obj = {
+//  className: 'open menu menu'
+//}
+//removeClass(obj, 'blabla');
+//removeClass(obj, 'menu')
+//alert(obj.className) // open
+//
+//var arr = [5, 2, 1, -10, 8];
+//function compareReversed(a, b) {
+//  return b - a;
+//}
+//arr.sort(compareReversed);
+//alert( arr );
+//
+//var arr = [1, 2, 3, 4, 5];
+//function compareRandom(a, b) {
+//  return Math.random() - 0.5;
+//}
+//arr.sort(compareRandom);
+//alert( arr ); // элементы в случайном порядке, например [3,5,1,2,4]
+//
+//function aclean(arr) {
+//  // этот объект будем использовать для уникальности
+//  var obj = {};
+//  for (var i = 0; i < arr.length; i++) {
+//    // разбить строку на буквы, отсортировать и слить обратно
+//    var sorted = arr[i].toLowerCase().split('').sort().join(''); // (*)
+//    obj[sorted] = arr[i]; // сохраняет только одно значение с таким ключом
+//  }
+//  var result = [];
+//  // теперь в obj находится для каждого ключа ровно одно значение
+//  for (var key in obj) result.push(obj[key]);
+//  return result;
+//}
+//var arr = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
+//alert( aclean(arr) );
+
+//
+//Массив: перебирающие методы
+//
+//var arr = ["Есть", "жизнь", "на", "Марсе"];
+//var arrLength = arr.map(function(item) {
+//  return item.length;
+//});
+//alert( arrLength ); // 4,5,2,5
+//
+//Дата и Время
+//function getWeekDay(date) {
+//  var days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+//  return days[date.getDay()];
+//}
+//var date = new Date(2014, 0, 3); // 3 января 2014
+//alert( getWeekDay(date) ); // 'пт'
+
+
+Локальные переменные для объекта
+
+function makeCounter() {
+  var currentCount = 1;
+  return function() {
+    return currentCount++;
+  };
+}
+var counter = makeCounter();
+// каждый вызов возвращает результат, увеличивая счётчик
+alert( counter() ); // 1
+alert( counter() ); // 2
+alert( counter() ); // 3
+
+function makeBuffer() {
+  var text = '';
+  return function(piece) {
+    if (arguments.length == 0) { // вызов без аргументов
+      return text;
+    }
+    text += piece;
+  };
+};
+var buffer = makeBuffer();
+// добавить значения к буферу
+buffer('Замыкания');
+buffer(' Использовать');
+buffer(' Нужно!');
+alert( buffer() ); // 'Замыкания Использовать Нужно!'
+var buffer2 = makeBuffer();
+buffer2(0);
+buffer2(1);
+buffer2(0);
+alert( buffer2() ); // '010'
+
+
+
+
+
+
+
+
+
+
+
+
+
+СПРОСИТЬ КАК РАБОТАЕТ!!!
+var str = "Ослик Иа-Иа посмотрел на виадук"; // ищем в этой строке
+var target = "Иа"; // цель поиска
+
+var pos = -1;
+while ((pos = str.indexOf(target, pos + 1)) != -1) {
+  alert( pos );
+}
+
+
+function filterRangeInPlace(arr, a, b) {
+  for (var i = 0; i < arr.length; i++) {
+    var val = arr[i];
+    if (val < a || val > b) {
+      arr.splice(i--, 1);  //i--? начиная с позиции, удалить 1 элемент
+    }
   }
 }
-console.log( max );
+var arr = [5, 3, 8, 1];
+
+filterRangeInPlace(arr, 1, 4);
+alert( arr ); // [3, 1]
+
+
