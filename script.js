@@ -145,22 +145,22 @@
 //Создайте код, который выводит все простые числа из интервала от 2 до 10. Результат должен быть: 2,3,5,7.
 //P.S. Код также должен легко модифицироваться для любых других интервалов.
 
-Решение задачи на языке JavaScript.
-
-<script>
-var cont = 0;
-for(var i = 2; i < 500000; i++) {
-	cont = 0;
-	for(var a = i; a > 0; a--) {
-		if(i % a == 0){
-			cont++;
-		}
-	}
-	if(cont <= 2) {
-		console.log(i);
-	}
-}
-</script>
+//Решение задачи на языке JavaScript.
+//
+//<script>
+//var cont = 0;
+//for(var i = 2; i < 500000; i++) {
+//	cont = 0;
+//	for(var a = i; a > 0; a--) {
+//		if(i % a == 0){
+//			cont++;
+//		}
+//	}
+//	if(cont <= 2) {
+//		console.log(i);
+//	}
+//}
+//</script>
 
 //Конструкция switch
 
@@ -380,32 +380,6 @@ for(var i = 2; i < 500000; i++) {
 //}
 
 
-
-
-
-
-//1. Из массива случайных чисел длиной 20 в диапазоне -50..50 выбрать отрицательные нечетные числа.
-//
-//function getRandomNumber(min, max) {
-//   return Math.floor(Math.random()*(max + 1 - min)) + min;
-//}
-//
-//function getRandomArray(length, min, max) {
-//   var arr = [];
-//   for (var i = 0; i < length; i++) {
-//       arr[i] = getRandomNumber(min, max);
-//   }
-//   return arr;
-//}
-//
-//var a = getRandomArray(20, -50, 50);
-//for (var i = 0; i < a.length; i++) {
-//if (a[i] < 0 && !(a[i]%2==0)) {
-// alert(a[i]);
-//}
-//}
-
-
 //Псевдомассив аргументов "arguments"
 //function f (x) { 
 //for (var i = 0; i < arguments.length; i++) {
@@ -551,42 +525,40 @@ for(var i = 2; i < 500000; i++) {
 //alert( getWeekDay(date) ); // 'пт'
 
 
-Локальные переменные для объекта
-
-function makeCounter() {
-  var currentCount = 1;
-  return function() {
-    return currentCount++;
-  };
-}
-var counter = makeCounter();
-// каждый вызов возвращает результат, увеличивая счётчик
-alert( counter() ); // 1
-alert( counter() ); // 2
-alert( counter() ); // 3
-
-function makeBuffer() {
-  var text = '';
-  return function(piece) {
-    if (arguments.length == 0) { // вызов без аргументов
-      return text;
-    }
-    text += piece;
-  };
-};
-var buffer = makeBuffer();
-// добавить значения к буферу
-buffer('Замыкания');
-buffer(' Использовать');
-buffer(' Нужно!');
-alert( buffer() ); // 'Замыкания Использовать Нужно!'
-var buffer2 = makeBuffer();
-buffer2(0);
-buffer2(1);
-buffer2(0);
-alert( buffer2() ); // '010'
-
-
+//Локальные переменные для объекта
+//
+//function makeCounter() {
+//  var currentCount = 1;
+//  return function() {
+//    return currentCount++;
+//  };
+//}
+//var counter = makeCounter();
+//// каждый вызов возвращает результат, увеличивая счётчик
+//alert( counter() ); // 1
+//alert( counter() ); // 2
+//alert( counter() ); // 3
+//
+//function makeBuffer() {
+//  var text = '';
+//  return function(piece) {
+//    if (arguments.length == 0) { // вызов без аргументов
+//      return text;
+//    }
+//    text += piece;
+//  };
+//};
+//var buffer = makeBuffer();
+//// добавить значения к буферу
+//buffer('Замыкания');
+//buffer(' Использовать');
+//buffer(' Нужно!');
+//alert( buffer() ); // 'Замыкания Использовать Нужно!'
+//var buffer2 = makeBuffer();
+//buffer2(0);
+//buffer2(1);
+//buffer2(0);
+//alert( buffer2() ); // '010'
 
 
 
@@ -598,27 +570,175 @@ alert( buffer2() ); // '010'
 
 
 
-СПРОСИТЬ КАК РАБОТАЕТ!!!
-var str = "Ослик Иа-Иа посмотрел на виадук"; // ищем в этой строке
-var target = "Иа"; // цель поиска
-
-var pos = -1;
-while ((pos = str.indexOf(target, pos + 1)) != -1) {
-  alert( pos );
-}
 
 
-function filterRangeInPlace(arr, a, b) {
-  for (var i = 0; i < arr.length; i++) {
-    var val = arr[i];
-    if (val < a || val > b) {
-      arr.splice(i--, 1);  //i--? начиная с позиции, удалить 1 элемент
-    }
-  }
-}
-var arr = [5, 3, 8, 1];
-
-filterRangeInPlace(arr, 1, 4);
-alert( arr ); // [3, 1]
 
 
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+--------------------------------------------------------------------------------------------------
+
+//1. Из массива случайных чисел длиной 20 в диапазоне -50..50 выбрать отрицательные нечетные числа.
+//
+//function getRandomNumber(min, max) {
+//   return Math.floor(Math.random()*(max + 1 - min)) + min;
+//}
+//
+//function getRandomArray(length, min, max) {
+//   var arr = [];
+//   for (var i = 0; i < length; i++) {
+//       arr[i] = getRandomNumber(min, max);
+//   }
+//   return arr;
+//}
+//
+//var a = getRandomArray(20, -50, 50);
+//for (var i = 0; i < a.length; i++) {
+//if (a[i] < 0 && !(a[i]%2==0)) {
+// alert(a[i]);
+//}
+//}
+
+//2. Написать функцию, которая находит максимальное значение в произвольном массиве.
+//var arr  = [37, 25, 49, 28, 21, 48, 25, 28, 31, 29, 35, 2, 7, 12, 28, 41, 4, 5, 22, 16];
+//function maxNumber() {
+//var max =0;
+//for(i=0; i<arr[i]; i++) {
+//if (arr[i]>max) {
+//max = arr[i];
+//}
+//}
+//return max;
+//}
+////console.log(maxNumber());
+
+
+----------------------------------------------------------------------------------------------------
+ВЫРАЗИТЕЛЬНЫЙ JS
+	
+//Минимум
+//function min(a, b) {
+//var z = Math.min(a, b);
+//return z;
+//}
+//console.log(min(0, 10));
+//console.log(min(0, -10));	
+	
+//Рекурсия	
+//function isEven (a) {
+//if (a%2==0) {
+//return true;
+//} else {
+//return false;
+//}
+//}
+//console.log(isEven(50));
+//// → true
+//console.log(isEven(75));
+//// → false
+//console.log(isEven(-1));
+	
+//Считаем бобы (Посмотрел решение что бы сравнить ответ и забыл доделать задание)
+//function countBs(a) {
+//var s = 0;
+//for (i=0; i<a.length; i++) {
+//if (a[i]=='B') {
+//s+=1;
+//}
+//}
+//return s;
+//}
+//countBs('SDFSFBSDFBSDFBaffasbasdbb')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+//СПРОСИТЬ КАК РАБОТАЕТ!!!
+//var str = "Ослик Иа-Иа посмотрел на виадук"; // ищем в этой строке
+//var target = "Иа"; // цель поиска
+//
+//var pos = -1;
+//while ((pos = str.indexOf(target, pos + 1)) != -1) {
+//  alert( pos );
+//}
+//
+//
+//function filterRangeInPlace(arr, a, b) {
+//  for (var i = 0; i < arr.length; i++) {
+//    var val = arr[i];
+//    if (val < a || val > b) {
+//      arr.splice(i--, 1);  //i--? начиная с позиции, удалить 1 элемент
+//    }
+//  }
+//}
+//var arr = [5, 3, 8, 1];
+//
+//filterRangeInPlace(arr, 1, 4);
+//alert( arr ); // [3, 1]
+----------------------------------------------------------------------------------------------------
+	
+	
